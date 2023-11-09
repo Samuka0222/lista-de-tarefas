@@ -1,7 +1,9 @@
-const IconeBtn = ({icone}) => {
+const IconeBtn = ({children, task, concluirTarefa}) => {
     return (
-        <button>
-
+        <button
+        task = {task}
+        onClick={() => concluirTarefa(task)}>
+            {children}
         </button>
     )
 }

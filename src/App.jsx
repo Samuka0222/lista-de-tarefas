@@ -3,8 +3,9 @@ import Form from "./components/Form"
 import QuadroTarefas from "./components/QuadroTarefas"
 
 function App() {
-  const [tarefas, setTarefas] = useState([])
   const [value, setValue] = useState('')
+  const [tarefas, setTarefas] = useState([])
+  const [tarefasConcluidas, setTarefasConcluidas] = useState([])
 
   const onChange = (value) => {
     setValue(value)
@@ -16,9 +17,14 @@ function App() {
     setValue('')
   }
 
-  useEffect(() => {
-    console.log(tarefas)
-  }, [tarefas])
+    const concluirTarefa = (taskConcluida) => {
+        console.log("clicou no botão")
+        setTarefasConcluidas([...tarefasConcluidas, taskConcluida])
+    }
+
+    useEffect(() => {
+        console.log(tarefasConcluidas)
+    }, [tarefasConcluidas])
 
   return (
     <div className="h-screen w-screen flex flex-col items-center bg-gradient-to-br from-roxo-dark to-roxo-bg font-roboto">
@@ -29,6 +35,7 @@ function App() {
       />
       <QuadroTarefas 
         tasks={tarefas}
+        concluirTarefa={concluirTarefa}
       />
     </div>
   )
