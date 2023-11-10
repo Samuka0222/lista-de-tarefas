@@ -1,8 +1,8 @@
-const IconeBtn = ({children, task, concluirTarefa}) => {
+const IconeBtn = ({children, task, toggleComplete}) => {
     return (
         <button
         task = {task}
-        onClick={() => concluirTarefa(task)}>
+        onClick={() => toggleComplete(task)}>
             {children}
         </button>
     )

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import Form from "./components/Form"
-import QuadroTarefas from "./components/QuadroTarefas"
+import TasksBoard from "./components/QuadroTarefas"
+import {v4 as uuidv4} from 'uuid';
+uuidv4();
 
 function App() {
   const [value, setValue] = useState('')
-  const [tarefas, setTarefas] = useState([])
-  const [tarefasConcluidas, setTarefasConcluidas] = useState([])
+  const [tasks, setTasks] = useState([])
 
   const onChange = (value) => {
     setValue(value)
@@ -13,18 +14,22 @@ function App() {
 
   const addTask = (e) => {
     e.preventDefault()
-    setTarefas([...tarefas, value])
+    setTasks([...tasks, {
+      id: uuidv4(),
+      task: value,
+      completed: false,
+      isEditing: false
+    }])
     setValue('')
   }
 
-    const concluirTarefa = (taskConcluida) => {
-        console.log("clicou no botão")
-        setTarefasConcluidas([...tarefasConcluidas, taskConcluida])
+    const toggleComplete = (CompletedTask) => {
+        const id = CompletedTask.id
+        setTasks(tasks.map(task => task.id === id ? {...task, completed: !task.completed} : task))
     }
 
-    useEffect(() => {
-        console.log(tarefasConcluidas)
-    }, [tarefasConcluidas])
+    const todoTasks = tasks.filter(task => task.completed === false)
+    const completedTasks = tasks.filter(task => task.completed)
 
   return (
     <div className="h-screen w-screen flex flex-col items-center bg-gradient-to-br from-roxo-dark to-roxo-bg font-roboto">
@@ -33,10 +38,18 @@ function App() {
         addTask={addTask}
         value={value}
       />
-      <QuadroTarefas 
-        tasks={tarefas}
-        concluirTarefa={concluirTarefa}
+      <TasksBoard
+        title={"Tarefas do dia:"}
+        tasks={todoTasks}
+        toggleComplete={toggleComplete}
       />
+      {completedTasks.length > 0 && 
+      <TasksBoard
+        title={"Tarefas completas"}
+        tasks={completedTasks}
+        toggleComplete={toggleComplete}
+      />
+      }
     </div>
   )
 }
