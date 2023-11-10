@@ -47,31 +47,35 @@ function App() {
     const completedTasks = tasks.filter(task => task.completed)
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center bg-gradient-to-br from-roxo-dark to-roxo-bg font-roboto overflow-hidden py-10">
+    <div className="h-screen w-screen flex flex-col items-center bg-gradient-to-br from-roxo-dark to-roxo-bg font-roboto overflow-auto">
       <Form
         onChange={onChange}
         addTask={addTask}
         value={value}
       />
-      <TasksBoard
-        title={"Tarefas do dia:"}
-        tasks={todoTasks}
-        status={(completedTasks.length > 0) ? true : false}
-        toggleComplete={toggleComplete}
-        editTask={editTask}
-        updateTask={updateTask}
-        deleteTask={deleteTask}
-      />
-      {completedTasks.length > 0 && 
-      <TasksBoard
-        title={"Tarefas completas"}
-        tasks={completedTasks}
-        toggleComplete={toggleComplete}
-        editTask={editTask}
-        updateTask={updateTask}
-        deleteTask={deleteTask}
-      />
-      }
+        <div className="w-full flex flex-col items-center lg:flex-row lg:justify-center lg:gap-12 lg:mt-8 lg:px-12">
+          <TasksBoard
+            title={"Tarefas do dia:"}
+            tasks={todoTasks}
+            status={(completedTasks.length > 0) ? true : false}
+            toggleComplete={toggleComplete}
+            editTask={editTask}
+            updateTask={updateTask}
+            deleteTask={deleteTask}
+            type={'todo'}
+          />
+          {completedTasks.length > 0 &&
+          <TasksBoard
+            title={"Tarefas completas"}
+            tasks={completedTasks}
+            toggleComplete={toggleComplete}
+            editTask={editTask}
+            updateTask={updateTask}
+            deleteTask={deleteTask}
+            type={"completed"}
+          />
+          }
+        </div>
     </div>
   )
 }

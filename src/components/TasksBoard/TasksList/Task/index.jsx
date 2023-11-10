@@ -2,10 +2,15 @@ import { faPenToSquare, faSquareCheck, faSquareXmark, faTrash } from "@fortaweso
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IconBtn from "./IconBtn";
 
-const Task = ({ task, toggleComplete, deleteTask, editTask }) => {
+const Task = ({ task, toggleComplete, deleteTask, editTask, type = "todo"}) => {
+
+    const definedTheme = (type === "todo") 
+    ? 'bg-gradient-to-r from-roxo-padrao to-roxo-suave' 
+    : 'bg-roxo-dark'
+
     return (
-        <li className="flex items-center justify-between w-full h-12 max-h-fit px-2 text-gray-200 bg-gradient-to-r from-roxo-padrao to-roxo-suave rounded-md">
-            <p className={`flex flex-row text-lg font-bold whitespace-nowrap w-60 overflow-x-auto ${task.completed === true ? "line-through" : ''}`}>
+        <li className={`text-gray-200 flex items-center justify-between w-full h-12 max-h-fit px-2 rounded-md ${definedTheme}`}>
+            <p className={`flex flex-row text-lg font-bold whitespace-nowrap w-9/12 overflow-x-auto ${task.completed === true ? "line-through text-gray-500" : ''}`}>
                 {task.task}
             </p>
             <span className="flex gap-3 text-2xl">

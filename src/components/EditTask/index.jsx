@@ -7,15 +7,15 @@ const EditTask = ({ updateTask, task }) => {
         e.preventDefault()
         updateTask(value, task.id)
         setValue('')
-        console.log(`Alteração enviada, novo valor: ${value}`)
     }
     
     return (
-        <form className="flex items-center justify-between w-full h-10 px-2 text-gray-200 bg-gradient-to-r from-roxo-padrao to-roxo-suave rounded-md"
+        <form className="flex items-center justify-between w-full h-12 px-2 text-gray-200 bg-gradient-to-r from-roxo-padrao to-roxo-suave rounded-md"
         onSubmit={handleSubmit}
         >
             <input className="w-8/12 bg-transparent text-gray-200 font-bold text-lg text-left focus:outline-none"
                 placeholder="Atualizar tarefa"
+                required
                 onChange={(e => setValue(e.target.value))}
                 value={value}
             ></input>
