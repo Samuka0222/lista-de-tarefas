@@ -25,7 +25,7 @@ export default withMT({
           complementar: '#00D7FF',
           complementarLight: '#72FFFF',
           complementarDark: '#0264b0',
-          bg: '#12002b'
+          bg: '#12002b',
         },
       },
       fontFamily: {
