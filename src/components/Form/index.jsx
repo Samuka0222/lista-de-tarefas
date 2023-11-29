@@ -5,7 +5,7 @@ import Input from "./Input";
 const Form = ({ onChange, addTask, value }) => {
 
     return (
-        <form className="flex flex-col w-5/6 lg:w-2/5 items-center mt-8 bg-roxo-dark h-fit p-3 rounded-xl ring-2 ring-azul-light"
+        <form className="flex flex-col w-5/6 lg:w-2/5 items-center bg-neon-dark h-fit p-3 rounded-xl ring-2 ring-neon-complementar"
             onSubmit={addTask}>
             <h1 className="text-2xl text-gray-200 font-bold mb-4">O que iremos fazer hoje?</h1>
             <Input

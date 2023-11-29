@@ -5,8 +5,8 @@ import IconBtn from "./IconBtn";
 const Task = ({ task, toggleComplete, deleteTask, editTask, type = "todo"}) => {
 
     const definedTheme = (type === "todo") 
-    ? 'bg-gradient-to-r from-roxo-padrao to-roxo-suave' 
-    : 'bg-roxo-dark'
+    ? 'bg-gradient-to-r from-neon-primaria to-neon-secundaria' 
+    : 'bg-neon-dark'
 
     return (
         <li className={`text-gray-200 flex items-center justify-between w-full h-12 max-h-fit px-2 rounded-md ${definedTheme}`}>

@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+import withMT from '@material-tailwind/react/utils/withMT'
+
+export default withMT({
   content: [
     "./index.html",
     "./src/**/*.{js,jsx}",
+    "./node_modules/@material-tailwind/react/components/**/*.{js,jsx}",
+    "./node_modules/@material-tailwind/react/theme/components/**/*.{js,jsx}",
   ],
   theme: {
     extend: {
@@ -13,19 +17,16 @@ export default {
         '5.5': '1.35rem'
       },
       colors: {
-        roxo: {
+        neon: {
+          primaria: '#9400FF',
+          secundaria: '#793FDF',
           light: '#D4ADFC',
-          suave: '#793FDF',
-          padrao: '#9400FF',
           dark: '#27005D',
+          complementar: '#00D7FF',
+          complementarLight: '#72FFFF',
+          complementarDark: '#0264b0',
           bg: '#12002b'
         },
-        azul: {
-          light: '#72FFFF',
-          suave: '#00D7FF',
-          padrao: '#0096FF',
-          dark: '#5800FF' 
-        }
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"]
@@ -33,5 +34,5 @@ export default {
     },
   },
   plugins: [],
-}
+})
 

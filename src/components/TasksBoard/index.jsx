@@ -5,7 +5,7 @@ const TasksBoard = ({ title, tasks, status, toggleComplete, deleteTask, editTask
 
     return (
         <div className="my-5 w-full md:w-5/6 lg:w-2/5 flex flex-col items-center h-full">
-            <h1 className="text-xl w-11/12 md:w-full text-center font-bold text-gray-200 mt-1 mb-4 border-b-2 border-azul-suave">
+            <h1 className="text-xl w-11/12 md:w-full text-center font-bold text-gray-200 mt-1 mb-4 border-b-2 border-neon-complementar">
                 {title}
             </h1>
             {(tasks.length > 0) ? (
