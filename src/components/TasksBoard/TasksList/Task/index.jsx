@@ -1,12 +1,15 @@
 import { faPenToSquare, faSquareCheck, faSquareXmark, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IconBtn from "./IconBtn";
+import { ThemeContext } from "../../../../context/ThemeContext";
+import { useContext } from "react";
 
 const Task = ({ task, toggleComplete, deleteTask, editTask, type = "todo"}) => {
+    const { theme } = useContext(ThemeContext)
 
     const definedTheme = (type === "todo") 
-    ? 'bg-gradient-to-r from-neon-primaria to-neon-secundaria' 
-    : 'bg-neon-dark'
+    ? `bg-gradient-to-r from-${theme}-primaria to-${theme}-secundaria` 
+    : `bg-${theme}-dark`
 
     return (
         <li className={`text-gray-200 flex items-center justify-between w-full h-12 max-h-fit px-2 rounded-md ${definedTheme}`}>

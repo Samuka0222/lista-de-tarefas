@@ -2,6 +2,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom"
+
 import Home from "./pages/Home";
 import ToDoList from "./pages/ToDoList";
 import Notepad from "./pages/Notepad"
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
 
 function Router() {
   return (
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
   )
 }
 
