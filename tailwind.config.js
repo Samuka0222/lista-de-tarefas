@@ -26,20 +26,7 @@ export default withMT({
           complementarLight: '#72FFFF',
           complementarDark: '#0264b0',
           bg: '#12002b',
-        },
-
-        sunset: {
-          primaria: '#F05941',
-          secundaria: '#BE3144',
-          light: '#F94C10',
-          dark: '#900C3F',
-          complementar: '#872341',
-          complementarLight: '#C70039',
-          complementarDark: '#9F0D7F',
-          bg: '#22092C',
-        },
-
-        
+        }
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"]
