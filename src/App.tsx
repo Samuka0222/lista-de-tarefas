@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react"
 import Form from "./components/Form"
 import TasksBoard from "./components/TasksBoard"
@@ -5,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useTasksContext } from "./hooks/useTasksContext";
 uuidv4();
 
-function App() {
+const App = () => {
   const [value, setValue] = useState('')
   const {
     completedTasks,
@@ -17,11 +18,11 @@ function App() {
     updateTask,
   } = useTasksContext();
 
-  const handleInputChange = (value) => {
+  const handleInputChange = (value: string) => {
     setValue(value)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     addTask(value);
     setValue('');

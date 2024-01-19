@@ -1,9 +1,13 @@
+import React, { FormEventHandler } from "react";
 import Input from "./Input";
 
+interface FormProps {
+    onChange: (value: string) => void;
+    addTask: FormEventHandler<HTMLFormElement>
+    value: string;
+}
 
-// eslint-disable-next-line react/prop-types
-const Form = ({ onChange, addTask, value }) => {
-
+const Form = ({ onChange, addTask, value }: FormProps) => {
     return (
         <form className="flex flex-col w-5/6 lg:w-2/5 items-center mt-8 bg-roxo-dark h-fit p-3 rounded-xl ring-2 ring-azul-light"
             onSubmit={addTask}>

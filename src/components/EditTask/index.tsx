@@ -1,9 +1,10 @@
+import React from "react";
 import { useState } from "react";
 
 const EditTask = ({ updateTask, task }) => {
     const [value, setValue] = useState(task.task)
     
-    const handleSubmit = e => {
+    const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault()
         updateTask(value, task.id)
         setValue('')

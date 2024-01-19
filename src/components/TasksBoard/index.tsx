@@ -1,6 +1,20 @@
+import React from "react";
 import TasksList from "./TasksList";
+import ITask from "../../interface/ITask"
 
-const TasksBoard = ({ title, tasks, status, toggleComplete, deleteTask, editTask, updateTask, type }) => {
+interface TaskBoardProps {
+    title: String;
+    tasks: ITask[];
+    status?: Boolean;
+    toggleComplete: (completeTask: ITask) => void;
+    deleteTask: (task: ITask) => void;
+    editTask: (task: ITask) => void;
+    updateTask: (updatedTask: string, id: string) => void;
+    type: string
+
+}
+
+const TasksBoard = ({ title, tasks, status, toggleComplete, deleteTask, editTask, updateTask, type }: TaskBoardProps) => {
     const anyTasksCompleted = status;
 
     return (

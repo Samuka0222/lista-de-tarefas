@@ -1,8 +1,18 @@
+import React from "react";
 import { faPenToSquare, faSquareCheck, faSquareXmark, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IconBtn from "./IconBtn";
+import ITask from "../../../../interface/ITask";
 
-const Task = ({ task, toggleComplete, deleteTask, editTask, type = "todo"}) => {
+interface TaskProps {
+    task: ITask;
+    toggleComplete: (task: ITask) => void;
+    deleteTask: (task: ITask) => void;
+    editTask: (task: ITask) => void;
+    type: string;
+}
+
+const Task = ({ task, toggleComplete, deleteTask, editTask, type = "todo"}: TaskProps) => {
 
     const definedTheme = (type === "todo") 
     ? 'bg-gradient-to-r from-roxo-padrao to-roxo-suave' 
@@ -16,14 +26,12 @@ const Task = ({ task, toggleComplete, deleteTask, editTask, type = "todo"}) => {
             <span className="flex gap-3 text-2xl">
                 <IconBtn
                     onClick={() => toggleComplete(task)}
-                    task={task}
                 >
                     <FontAwesomeIcon
                         icon={task.completed ? faSquareXmark : faSquareCheck}
                     />
                 </IconBtn>
                 <IconBtn
-                    task={task}
                     onClick={() => editTask(task)}
                 >
                     <FontAwesomeIcon
@@ -32,7 +40,6 @@ const Task = ({ task, toggleComplete, deleteTask, editTask, type = "todo"}) => {
                     />
                 </IconBtn>
                 <IconBtn
-                    task={task}
                     onClick={() => deleteTask(task)}
                 >
                     <FontAwesomeIcon
